@@ -1,0 +1,129 @@
+#input2
+
+from tkinter import *
+from tkinter import PhotoImage
+#Create root window
+root = Tk()
+
+#root window title and dimensions
+root.title("Welcome to my store")
+
+#Set geometry (width * height)
+root.geometry('500x300')
+#ADDING NEW BAR IN ROOT
+#new item in menu bar is labeled "New"
+#adding more items to menue bar
+
+menu = Menu(root)
+item = Menu(root)
+item.add_command(label='new')
+#item amounts
+bananas = 0
+apples = 0
+pears = 0
+oranges = 0
+#Label
+#headers
+head1 = Label(root, text = "Products", width=10)
+head1.grid (column=0, row=0)
+head2 = Label(root, text = "Amount", width = 10)
+head2.grid (column=2, row=0)
+head3 = Label(root, text = "Prices", width = 8)
+head3.grid (column=1, row=0)
+head4 = Label(root, text = "Total", width = 8)
+head4.grid (column=5, row=0)
+head5 = Label(root, text = "Input", width = 8)
+head5.grid (column=4, row=0)
+#items
+item1 = Label(root, text = "Apples")
+item1.grid (column=0, row=1)
+item2 = Label(root, text = "Bananas")
+item2.grid (column=0, row=2)
+item3 = Label(root, text = "Pears")
+item3.grid (column=0, row=3)
+item4 = Label(root, text = "Oranges")
+item4.grid (column=0, row=4)
+#output of the amount of items
+out1 = Label(root, text = " ")
+out1.grid (column=4, row=1)
+out2 = Label(root, text = " ")
+out2.grid (column=4, row=2)
+out3 = Label(root, text = " ")
+out3.grid (column=4, row=3)
+out4 = Label(root, text = " ")
+out4.grid (column=4, row=4)
+#prices
+price1 = Label(root, text = "$2.00")
+price1.grid (column=1, row=1)
+price2 = Label(root, text = "$1.00")
+price2.grid (column=1, row=2)
+price3 = Label(root, text = "$5.00")
+price3.grid (column=1, row=3)
+price4 = Label(root, text = "$3.00")
+price4.grid (column=1, row=4)
+#Totals
+total1 = Label(root, text = " ")
+total1.grid (column=5, row=1)
+total2 = Label(root, text = " ")
+total2.grid (column=5, row=2)
+total3 = Label(root, text = " ")
+total3.grid (column=5, row=3)
+total4 = Label(root, text = " ")
+total4.grid (column=5, row=4)
+"""
+image1 = Label(root, text = "test")
+image1.grid (column=1, row=1)
+#images
+image1.image = PhotoImage(file = "Apples.png")
+"""
+#function when button is clicked
+def printText1():
+    inp1 = text1.get()
+    out1.config(text = inp1)
+    bananas_amount = int(inp1)
+    bananas_total = bananas_amount * 2
+    total1.config(text ="Total: $"+str(bananas_total))
+def printText2():
+    inp2 = text2.get()
+    out2.config(text = inp2)
+    apples_amount = int(inp2)
+    apples_total = apples_amount * 1
+    total2.config(text ="Total: $"+str(apples_total))
+def printText3():
+    inp3 = text3.get()
+    out3.config(text = inp3)
+    pears_amount = int(inp3)
+    pears_total = pears_amount * 5
+    total3.config(text ="Total: $"+str(pears_total))
+def printText4():
+    inp4 = text4.get()
+    out4.config(text = inp4)
+    oranges_amount = int(inp4)
+    oranges_total = oranges_amount * 3
+    total4.config(text ="Total: $"+str(oranges_total))
+
+#text entry
+text1 = Entry(root, width=10)
+text1.grid(column=2, row=1)
+text2 = Entry(root, width=10)
+text2.grid(column=2, row=2)
+text3 = Entry(root, width=10)
+text3.grid(column=2, row=3)
+text4 = Entry(root, width=10)
+text4.grid(column=2, row=4)
+#Button
+#confimations
+button1 = Button(root, text = "Confirm", bg= "white",
+                fg = "red", command=printText1)
+button1.grid(column=3, row=1)
+button2 = Button(root, text = "Confirm", bg= "white",
+                fg = "red", command=printText2)
+button2.grid(column=3, row=2)
+button3 = Button(root, text = "Confirm", bg= "white",
+                fg = "red", command=printText3)
+button3.grid(column=3, row=3)
+button4 = Button(root, text = "Confirm", bg= "white",
+                fg = "red", command=printText4)
+button4.grid(column=3, row=4)  
+#execute Tkinter
+root.mainloop()
